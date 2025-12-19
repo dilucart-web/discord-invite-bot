@@ -46,9 +46,10 @@ app.post("/create-invite", async (req, res) => {
 });
 
 // 🚀 ARRANQUE DEL SERVIDOR
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`🌐 API escuchando en http://localhost:${PORT}`);
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🌐 API escuchando en el puerto ${PORT}`);
 });
 
 client.login(process.env.DISCORD_TOKEN);
